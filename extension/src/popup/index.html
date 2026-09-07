@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <span class="logo">💼</span>
+      <div style="min-width: 0">
+        <span class="header-title">Workday AI Autofill</span>
+        <span class="header-sub" id="resumeSubtitle">No resume loaded yet</span>
+      </div>
+      <span class="badge-auto" id="autoBadge">AUTO OFF</span>
+    </div>
+
+    <!-- Resume Details -->
+    <div class="card" id="resumeCard">
+      <h3><span class="ico">📄</span> Resume</h3>
+      <div id="resumeInfo" class="muted" style="font-size: 12px">No resume selected. Upload a PDF/DOCX to begin.</div>
+      <div class="detail-grid" id="detailGrid">
+        <div>
+          <div class="dtitle">Email</div>
+          <div class="dvalue" id="dEmail">—</div>
+        </div>
+        <div>
+          <div class="dtitle">Phone</div>
+          <div class="dvalue" id="dPhone">—</div>
+        </div>
+        <div>
+          <div class="dtitle">Location</div>
+          <div class="dvalue" id="dLocation">—</div>
+        </div>
+        <div>
+          <div class="dtitle">Links</div>
+          <div class="dvalue" id="dLinks">—</div>
+        </div>
+      </div>
+      <div class="stat-pills" id="statPills"></div>
+      <div class="btn-row" style="margin-top: 10px">
+        <input id="resume" type="file" accept=".pdf,.docx" class="hidden" />
+        <button id="uploadBtn" class="btn">📤 Upload Resume</button>
+        <button id="start" class="btn btn-success" disabled>▶️ Start Autofill</button>
+        <button id="clear" class="btn btn-danger" disabled>🗑️ Clear</button>
+      </div>
+    </div>
+
+    <!-- Automation Controls -->
+    <div class="card">
+      <h3><span class="ico">⚙️</span> Automation</h3>
+      <div class="btn-row">
+        <button id="pauseBtn" class="btn btn-ghost" disabled>⏸️ Pause</button>
+        <button id="resumeBtn" class="btn" disabled>▶ Resume</button>
+        <button id="nextStep" class="btn btn-primary" disabled>Next Step ➡️</button>
+        <button id="continueReview" class="btn btn-ghost" disabled>✅ Review &amp; Submit</button>
+      </div>
+    </div>
+
+    <!-- Progress / Status -->
+    <div class="status" id="status">
+      <span class="spinner" aria-hidden="true"></span>
+      <span class="msg">Waiting for Start Autofill.</span>
+    </div>
+    <div class="progress hidden" id="progress"></div>
+
+    <!-- Review -->
+    <div id="review"></div>
+
+    <div class="footer">
+      Authentication &amp; final submit are always manual. Resume is kept in storage across page navigations.
+    </div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

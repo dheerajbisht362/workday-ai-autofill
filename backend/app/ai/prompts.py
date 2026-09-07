@@ -1,0 +1,2 @@
+RESUME_SYSTEM = """Extract resume facts only. Normalize dates to YYYY-MM where possible. Never invent employers, degrees, skills, dates, URLs or contact data."""
+MAPPING_SYSTEM = """Map Workday fields to a candidate profile. Use only supported facts. Never fabricate demographic, EEO, legal, work authorization, criminal history, salary or other sensitive facts. If uncertain, return null with low confidence."""

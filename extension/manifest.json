@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Workday AI Autofill",
+    "version": "1.2.0",
+    "description": "AI-assisted, user-confirmed Workday application autofill with manual flow support and repeatable sections.",
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://*.myworkdayjobs.com/*",
+        "http://localhost:8000/*"
+    ],
+    "background": {
+        "service_worker": "background/service-worker.js",
+        "type": "module"
+    },
+    "action": {
+        "default_popup": "src/popup/index.html",
+        "default_title": "Workday AI Autofill"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.myworkdayjobs.com/*",
+                "file:///*"
+            ],
+            "js": [
+                "content/index.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
+}
